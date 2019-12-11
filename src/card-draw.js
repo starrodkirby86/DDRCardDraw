@@ -1,4 +1,4 @@
-import { times } from "./utils";
+import { convert_level_for_pluses, displayLevel, times } from './utils';
 
 /**
  * Used to give each drawing an auto-incrementing id
@@ -59,14 +59,16 @@ export function draw(songs, configData) {
     charts.forEach((chart) => {
       // chart-level filters
 
+      const level = convert_level_for_pluses(chart.level);
+
       if (
         !chart || // no chart for difficulty
         // !difficulties.has(key) || // don't want this difficulty
         // (!inclusions.has("unlock") && chart["unlock"]) || // chart must be individually unlocked
         // (!inclusions.has("usLocked") && chart["us_locked"]) || // chart is locked for us
         // (!inclusions.has("extraExclusive") && chart["extra_exclusive"]) || // chart is extra/final exclusive
-        +chart.level < lowerBound || // too easy
-        +chart.level > upperBound // too hard
+        +level < lowerBound || // too easy
+        +level > upperBound // too hard
       ) {
         return;
       }
@@ -104,14 +106,17 @@ export function draw(songs, configData) {
   const expectedDrawPerLevel = {};
 
   // build an array of possible levels to pick from
-  for (let level = lowerBound; level <= upperBound; level++) {
+  const levels = [1,2,3,4,5,6,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14];
+
+  for (let levelIndex = levels.indexOf(lowerBound); levels[levelIndex] <= upperBound; levelIndex++) {
+    const level = levels[levelIndex];
     let weightAmount = 0;
     if (weighted) {
       weightAmount = parseInt(configData.get(`weight-${level}`), 10);
-      expectedDrawPerLevel[level.toString()] = weightAmount;
+      expectedDrawPerLevel[displayLevel(level)] = weightAmount;
       totalWeights += weightAmount;
     } else {
-      weightAmount = validCharts[level.toString()].length;
+      weightAmount = validCharts[displayLevel(level)].length;
     }
     times(weightAmount, () => distribution.push(level));
   }
@@ -146,8 +151,9 @@ export function draw(songs, configData) {
     }
 
     // first pick a difficulty
+    // Need to convert this back to n+ diff, if exists.
     const chosenDifficulty =
-      distribution[Math.floor(Math.random() * distribution.length)];
+      displayLevel(distribution[Math.floor(Math.random() * distribution.length)]);
     const selectableCharts = validCharts[chosenDifficulty.toString()];
     const randomIndex = Math.floor(Math.random() * selectableCharts.length);
     const randomChart = selectableCharts[randomIndex];

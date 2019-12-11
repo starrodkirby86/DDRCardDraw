@@ -25,8 +25,7 @@ export class SongCard extends Component {
       [styles.vetoed]: vetoed
     });
 
-    let jacketBg = {};
-    jacketBg = {
+    const jacketBg = {
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("jackets/${id}.jpg")`
     };
 
@@ -46,7 +45,7 @@ export class SongCard extends Component {
         <div className={styles.cardFooter}>
           <div className={styles.bpm}>{bpm} BPM</div>
           <div className={styles.difficulty}>
-            <Text id={abbreviation} /> {level}
+            <Text id={difficulty} /> {level}
           </div>
         </div>
       </div>
