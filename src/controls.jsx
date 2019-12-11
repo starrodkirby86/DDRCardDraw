@@ -155,7 +155,7 @@ export class Controls extends Component {
               <Text id="difficultyLevel">Difficulty level</Text>:
               <label>
                 <Text id="upperBound">Upper bound (inclusive)</Text>:
-                <select name="upperBound">
+                <select name="upperBound" value={this.state.upperBound} onChange={this.handleUpperBoundChange}>
                   {
                     levels.map(n => (
                     <option key={`upperBound-level-${n}`} selected={n === this.state.upperBound} value={mapLevel(n)}>
@@ -167,7 +167,7 @@ export class Controls extends Component {
               </label>
               <label>
                 <Text id="lowerBound">Lower bound (inclusive)</Text>:
-                <select name="lowerBound">
+                <select name="lowerBound" value={this.state.lowerBound} onChange={this.handleLowerBoundChange}>
                   {
                     levels.map(n => (
                       <option key={`lowerBound-level-${n}`} selected={n === this.state.lowerBound} value={mapLevel(n)}>
@@ -278,24 +278,16 @@ export class Controls extends Component {
   };
 
   handleLowerBoundChange = e => {
-    const newValue = parseInt(e.currentTarget.value, 10);
-    if (newValue > this.state.upperBound) {
-      return;
-    }
-
+    const newValue = mapLevel(e.currentTarget.value);
     this.setState({
-      lowerBound: newValue
+      lowerBound: newValue > this.state.upperBound ? this.state.lowerBound : mapLevel(newValue)
     });
   };
 
   handleUpperBoundChange = e => {
-    const newValue = parseInt(e.currentTarget.value, 10);
-    if (newValue < this.state.lowerBound) {
-      return;
-    }
-
+    const newValue = mapLevel(e.currentTarget.value);
     this.setState({
-      upperBound: newValue
+      upperBound: newValue < this.state.lowerBound ? this.state.upperBound : mapLevel(newValue)
     });
   };
 
