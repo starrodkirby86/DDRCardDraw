@@ -4,6 +4,7 @@ import styles from "./controls.css";
 import globalStyles from "./app.css";
 import { WeightsControls } from "./controls-weights";
 import { Text } from "preact-i18n";
+import { mapLevel, levels } from './utils';
 
 const dataSetConfigs = {
   maimai: {
@@ -13,37 +14,33 @@ const dataSetConfigs = {
     difficulties: [
       {
         key: "difficulty.maimai.easy",
-        value: "easy",
+        value: "Easy",
         checked: false
       },
       {
         key: "difficulty.maimai.bas",
-        value: "basic",
+        value: "Basic",
         checked: false
       },
       {
         key: "difficulty.maimai.adv",
-        value: "advanced",
+        value: "Advanced",
         checked: false
       },
-      { key: "difficulty.maimai.exp", value: "expert", checked: true },
+      { key: "difficulty.maimai.exp", value: "Expert", checked: true },
       {
         key: "difficulty.maimai.mas",
-        value: "master",
+        value: "Master",
         checked: true
       },
       {
         key: "difficulty.maimai.remas",
-        value: "re:master",
+        value: "Re:Master",
         checked: true
       }
     ],
     includables: {
-      unlock: true,
-      extraExclusive: false,
-      tempUnlock: false,
-      usLocked: false,
-      removed: false
+      is_v1_data: true,
     }
   },
   a20: {
@@ -158,25 +155,27 @@ export class Controls extends Component {
               <Text id="difficultyLevel">Difficulty level</Text>:
               <label>
                 <Text id="upperBound">Upper bound (inclusive)</Text>:
-                <input
-                  type="number"
-                  name="upperBound"
-                  onChange={this.handleUpperBoundChange}
-                  value={this.state.upperBound}
-                  min={this.state.lowerBound}
-                  max={this.state.upperMaximum}
-                />
+                <select name="upperBound">
+                  {
+                    levels.map(n => (
+                    <option key={`upperBound-level-${n}`} selected={n === this.state.upperBound} value={mapLevel(n)}>
+                      {mapLevel(n)}
+                    </option>)
+                    )
+                  }
+                </select>
               </label>
               <label>
                 <Text id="lowerBound">Lower bound (inclusive)</Text>:
-                <input
-                  type="number"
-                  name="lowerBound"
-                  onChange={this.handleLowerBoundChange}
-                  value={this.state.lowerBound}
-                  min="1"
-                  max={this.state.upperBound}
-                />
+                <select name="lowerBound">
+                  {
+                    levels.map(n => (
+                      <option key={`lowerBound-level-${n}`} selected={n === this.state.lowerBound} value={mapLevel(n)}>
+                        {mapLevel(n)}
+                      </option>)
+                    )
+                  }
+                </select>
               </label>
             </div>
             <div className={styles.group}>
@@ -194,19 +193,6 @@ export class Controls extends Component {
             </div>
           </div>
           <div className={styles.column}>
-            <div className={styles.group}>
-              <label>
-                <Text id="style">Style</Text>{" "}
-                <select name="style">
-                  <option value="single" defaultSelected>
-                    <Text id="single">Single</Text>
-                  </option>
-                  <option value="double">
-                    <Text id="double">Double</Text>
-                  </option>
-                </select>
-              </label>
-            </div>
             <div className={styles.group}>
               <Text id="difficulties">Difficulties</Text>:
               {difficulties.map(dif => (

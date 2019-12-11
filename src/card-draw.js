@@ -1,4 +1,4 @@
-import { convert_level_for_pluses, displayLevel, times } from './utils';
+import { levels, convert_level_for_pluses, displayLevel, mapLevel, times } from './utils';
 
 /**
  * Used to give each drawing an auto-incrementing id
@@ -13,8 +13,8 @@ let drawingID = 0;
  */
 export function draw(songs, configData) {
   const numChartsToRandom = parseInt(configData.get("chartCount"), 10);
-  const upperBound = parseInt(configData.get("upperBound"), 10);
-  const lowerBound = parseInt(configData.get("lowerBound"), 10);
+  const upperBound = mapLevel(configData.get("upperBound"));
+  const lowerBound = mapLevel(configData.get("lowerBound"));
   const abbreviations = JSON.parse(configData.get("abbreviations"));
   const style = configData.get("style");
   // requested difficulties
@@ -22,26 +22,14 @@ export function draw(songs, configData) {
   // other options: usLocked, extraExclusive, removed, unlock
   const inclusions = new Set(configData.getAll("inclusions"));
 
-
+  // build an array of possible levels to pick from
   const validCharts = {};
-
-  times(6, n => {
-    validCharts[n.toString()] = [];
-  });
-
-  times(7, n => {
-    const level = 6 + n; // from 7 to 13
-    validCharts[level.toString()] = [];
-    validCharts[`${level}+`] = [];
-  });
-
-  validCharts['14'] = [];
-
-  console.log(validCharts);
+  levels.forEach(n => validCharts[mapLevel(n)] = []);
 
   for (const currentSong of songs) {
     const charts = currentSong.charts;
     // song-level filters
+
     /*
     if (
       (!inclusions.has("usLocked") && currentSong["us_locked"]) ||
@@ -55,15 +43,17 @@ export function draw(songs, configData) {
     }
    */
 
+    if (!inclusions.has("is_v1_data") && (currentSong["is_v1_data"] === 0)) continue;
+
     // We're going to each chart inside the json and see if this is one of the diffs we want.
     charts.forEach((chart) => {
       // chart-level filters
 
-      const level = convert_level_for_pluses(chart.level);
+      const level = mapLevel(chart.level);
 
       if (
         !chart || // no chart for difficulty
-        // !difficulties.has(key) || // don't want this difficulty
+        !difficulties.has(chart.difficulty) || // don't want this difficulty
         // (!inclusions.has("unlock") && chart["unlock"]) || // chart must be individually unlocked
         // (!inclusions.has("usLocked") && chart["us_locked"]) || // chart is locked for us
         // (!inclusions.has("extraExclusive") && chart["extra_exclusive"]) || // chart is extra/final exclusive
@@ -105,18 +95,15 @@ export function draw(songs, configData) {
    */
   const expectedDrawPerLevel = {};
 
-  // build an array of possible levels to pick from
-  const levels = [1,2,3,4,5,6,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14];
-
   for (let levelIndex = levels.indexOf(lowerBound); levels[levelIndex] <= upperBound; levelIndex++) {
     const level = levels[levelIndex];
     let weightAmount = 0;
     if (weighted) {
       weightAmount = parseInt(configData.get(`weight-${level}`), 10);
-      expectedDrawPerLevel[displayLevel(level)] = weightAmount;
+      expectedDrawPerLevel[mapLevel(level)] = weightAmount;
       totalWeights += weightAmount;
     } else {
-      weightAmount = validCharts[displayLevel(level)].length;
+      weightAmount = validCharts[mapLevel(level)].length;
     }
     times(weightAmount, () => distribution.push(level));
   }
@@ -153,7 +140,7 @@ export function draw(songs, configData) {
     // first pick a difficulty
     // Need to convert this back to n+ diff, if exists.
     const chosenDifficulty =
-      displayLevel(distribution[Math.floor(Math.random() * distribution.length)]);
+      mapLevel(distribution[Math.floor(Math.random() * distribution.length)]);
     const selectableCharts = validCharts[chosenDifficulty.toString()];
     const randomIndex = Math.floor(Math.random() * selectableCharts.length);
     const randomChart = selectableCharts[randomIndex];

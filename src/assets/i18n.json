@@ -27,7 +27,8 @@
       "goldExclusive": "20th Gold Cab Exclusive",
       "extraExclusive": "Final/Extra Exclusive",
       "usLocked": "Japan-only songs",
-      "removed": "Removed songs"
+      "removed": "Removed songs",
+      "is_v1_data": "Songs added in updates"
     },
     "shockArrows": "Shock Arrows",
     "difficulty": {
