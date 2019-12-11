@@ -9,6 +9,7 @@ const isJapanese = detectedLanguage === "ja";
 export class SongCard extends Component {
   render() {
     const {
+      id,
       name,
       name_jp,
       artist,
@@ -18,7 +19,6 @@ export class SongCard extends Component {
       level,
       vetoed,
       abbreviation,
-      jacket
     } = this.props;
 
     const rootClassname = classNames(styles.chart, styles[difficulty], {
@@ -26,11 +26,9 @@ export class SongCard extends Component {
     });
 
     let jacketBg = {};
-    if (jacket) {
-      jacketBg = {
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("jackets/${jacket}")`
-      };
-    }
+    jacketBg = {
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("jackets/${id}.jpg")`
+    };
 
     return (
       <div className={rootClassname} onClick={this.props.onVeto}>
