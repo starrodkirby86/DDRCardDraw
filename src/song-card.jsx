@@ -10,13 +10,12 @@ export class SongCard extends Component {
   render() {
     const {
       name,
-      nameTranslation,
+      name_jp,
       artist,
-      artistTranslation,
+      artist_jp,
       bpm,
       difficulty,
       level,
-      hasShock,
       vetoed,
       abbreviation,
       jacket
@@ -36,36 +35,18 @@ export class SongCard extends Component {
     return (
       <div className={rootClassname} onClick={this.props.onVeto}>
         <div className={styles.cardCenter} style={jacketBg}>
-          <div className={styles.name} title={nameTranslation}>
+          <div className={styles.name} title={name_jp}>
             {name}
           </div>
           {isJapanese ? null : (
-            <div className={styles.nameTranslation}>{nameTranslation}</div>
+            <div className={styles.nameTranslation}>{name_jp}</div>
           )}
-          <div className={styles.artist} title={artistTranslation}>
+          <div className={styles.artist} title={artist_jp}>
             {artist}
           </div>
         </div>
         <div className={styles.cardFooter}>
           <div className={styles.bpm}>{bpm} BPM</div>
-          {hasShock && (
-            <Localizer>
-              <div
-                className={styles.shockBadge}
-                title={<Text id="shockArrows">Shock Arrows</Text>}
-              >
-                <svg
-                  height="100%"
-                  className="octicon octicon-zap"
-                  viewBox="0 0 10 16"
-                  version="1.1"
-                  ariaHidden="true"
-                >
-                  <path fillRule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z" />
-                </svg>
-              </div>
-            </Localizer>
-          )}
           <div className={styles.difficulty}>
             <Text id={abbreviation} /> {level}
           </div>

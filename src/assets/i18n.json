@@ -70,6 +70,32 @@
           "name": "Challenge",
           "abbreviation": "Cha"
         }
+      },
+      "maimai": {
+        "easy": {
+          "name": "Easy",
+          "abbreviation": "Lgt"
+        },
+        "bas": {
+          "name": "Basic",
+          "abbreviation": "Std"
+        },
+        "adv": {
+          "name": "Advanced",
+          "abbreviation": "Std"
+        },
+        "exp": {
+          "name": "Expert",
+          "abbreviation": "Hvy"
+        },
+        "mas": {
+          "name": "Master",
+          "abbreviation": "Cha"
+        },
+        "remas": {
+          "name": "Re:Master",
+          "abbreviation": "Cha"
+        }
       }
     },
     "draw": "Draw!",

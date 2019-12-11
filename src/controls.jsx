@@ -6,30 +6,35 @@ import { WeightsControls } from "./controls-weights";
 import { Text } from "preact-i18n";
 
 const dataSetConfigs = {
-  ace: {
-    lowerBound: 13,
-    upperBound: 16,
-    upperMaximum: 19,
+  maimai: {
+    lowerBound: 10,
+    upperBound: 13,
+    upperMaximum: 14,
     difficulties: [
       {
-        key: "difficulty.ace.beg",
-        value: "beginner",
+        key: "difficulty.maimai.easy",
+        value: "easy",
         checked: false
       },
       {
-        key: "difficulty.ace.bas",
+        key: "difficulty.maimai.bas",
         value: "basic",
         checked: false
       },
       {
-        key: "difficulty.ace.dif",
-        value: "difficult",
+        key: "difficulty.maimai.adv",
+        value: "advanced",
         checked: false
       },
-      { key: "difficulty.ace.exp", value: "expert", checked: true },
+      { key: "difficulty.maimai.exp", value: "expert", checked: true },
       {
-        key: "difficulty.ace.cha",
-        value: "challenge",
+        key: "difficulty.maimai.mas",
+        value: "master",
+        checked: true
+      },
+      {
+        key: "difficulty.maimai.remas",
+        value: "re:master",
         checked: true
       }
     ],
@@ -104,7 +109,7 @@ const dataSetConfigs = {
     includables: null
   }
 };
-const DEFAULT_DATA_SET = dataSetConfigs.a20;
+const DEFAULT_DATA_SET = dataSetConfigs.maimai;
 
 export class Controls extends Component {
   state = Object.assign(
@@ -138,18 +143,6 @@ export class Controls extends Component {
         />
         <section className={styles.columns}>
           <div className={styles.column}>
-            <div className={styles.group}>
-              <label>
-                <Text id="dataSource">DDR Version</Text>:{" "}
-                <select name="dataSource" onChange={this.handleSongListChange}>
-                  <option value="a20" defaultSelected>A20</option>
-                  <option value="ace">
-                    Ace
-                  </option>
-                  <option value="extreme">Extreme</option>
-                </select>
-              </label>
-            </div>
             <div className={styles.group}>
               <label>
                 <Text id="chartCount">Number to draw</Text>:{" "}
