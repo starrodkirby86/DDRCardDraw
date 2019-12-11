@@ -99,7 +99,7 @@ export function draw(songs, configData) {
     const level = levels[levelIndex];
     let weightAmount = 0;
     if (weighted) {
-      weightAmount = parseInt(configData.get(`weight-${level}`), 10);
+      weightAmount = parseInt(configData.get(`weight-${mapLevel(level)}`), 10);
       expectedDrawPerLevel[mapLevel(level)] = weightAmount;
       totalWeights += weightAmount;
     } else {
@@ -114,14 +114,17 @@ export function draw(songs, configData) {
   // so a level with a weight of 15% can only show up on at most 1 card, a level with
   // a weight of 30% can only show up on at most 2 cards, etc.
   if (weighted && limitOutliers) {
-    for (let level = lowerBound; level <= upperBound; level++) {
+    for (let levelIndex = levels.indexOf(lowerBound); levels[levelIndex] <= upperBound; levelIndex++) {
+      const level = levels[levelIndex];
       let normalizedWeight =
-        expectedDrawPerLevel[level.toString()] / totalWeights;
-      expectedDrawPerLevel[level] = Math.ceil(
+        expectedDrawPerLevel[mapLevel(level)] / totalWeights;
+      expectedDrawPerLevel[mapLevel(level)] = Math.ceil(
         normalizedWeight * numChartsToRandom
       );
     }
   }
+
+  console.log(expectedDrawPerLevel);
 
   const drawnCharts = [];
   /**

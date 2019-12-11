@@ -25,7 +25,6 @@ export class WeightsControls extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.low, nextProps.high);
     if (nextProps.low !== this.props.low || nextProps.high !== this.props.high) {
       this.setState({
         weights: this.getWeightsFor(nextProps),
