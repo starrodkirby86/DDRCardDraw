@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "ddr-card-draw",
+  "name": "maimai-card-draw",
   "version": "1.0.0",
-  "description": "A card draw app for running DDR tournaments",
+  "description": "A card draw app for running DDR tournaments... FEAT MAIMAI!!!",
   "scripts": {
     "start": "webpack-dev-server --env.dev=true",
     "build": "npm run validate && webpack",
@@ -10,8 +10,9 @@
     "deploy:staging": "npm run build && surge ./dist https://ddrdraw-staging.surge.sh",
     "validate": "node scripts/validate.js"
   },
-  "author": "Noah Manneschmidt",
+  "author": "Watson Tungjunyatham",
   "contributors": [
+    "Noah Manneschmidt",
     "Jeff Lloyd",
     "Chris Chike"
   ],
@@ -39,7 +40,7 @@
     "jsdom": "^11.6.2",
     "jsonschema": "^1.2.2",
     "offline-plugin": "^5.0.7",
-    "postcss-loader": "^2.1.0",
+    "postcss-loader": "^3.0.0",
     "preact": "^8.4.2",
     "preact-i18n": "^1.4.1",
     "style-loader": "^0.20.1",

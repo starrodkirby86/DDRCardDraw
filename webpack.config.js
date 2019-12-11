@@ -106,7 +106,7 @@ module.exports = function (env = {}, argv = {}) {
         filename: '[name].[contenthash:5].css',
       }),
       new HtmlWebpackPlugin({
-        title: 'DDR Card Draw',
+        title: 'Maimai Card Draw',
         filename: 'index.html',
         meta: {
           viewport: 'width=device-width, initial-scale=1'

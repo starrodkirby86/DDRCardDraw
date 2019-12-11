@@ -20,36 +20,18 @@ function Icon({ src, title }) {
   );
 }
 
-const lastUpdate = new Intl.DateTimeFormat(detectedLanguage).format(
-  // note that month is zero-indexed for date constructor :)
-  new Date(2019, 9, 22)
-);
-
 export function Footer() {
   return (
     <footer className={classNames(styles.footer, globalStyles.padded)}>
       <div>
-        <Text id="lastUpdate" fields={{ date: lastUpdate }}>
-          {`Songs up to date as of ${lastUpdate}.`}
-        </Text>{" "}
+        maimai Card Draw v0.0.1
+        &nbsp;-&nbsp;
         <a href="#" onClick={showCredits}>
           <Text id="credits">Credits</Text>
         </a>
       </div>
       <div>
-        <a href="https://m.me/noah.manneschmidt" target="_blank">
-          <Localizer>
-            <Icon src={fbLogo} title={<Text id="contact.facebook" />} />
-          </Localizer>
-        </a>
-        &nbsp;
-        <a href="https://twitter.com/Cathadan" target="_blank">
-          <Localizer>
-            <Icon src={twitterLogo} title={<Text id="contact.twitter" />} />
-          </Localizer>
-        </a>
-        &nbsp;
-        <a href="https://github.com/noahm/DDRCardDraw">
+        <a href="https://github.com/starrodkirby86/DDRCardDraw">
           <Localizer>
             <Icon src={githubLogo} title={<Text id="contact.github" />} />
           </Localizer>
@@ -62,10 +44,9 @@ export function Footer() {
 function showCredits(e) {
   e.preventDefault();
   alert(
-    "App originally by Jeff Lloyd. \
+    "App originally by Jeff Lloyd, Noah Manneschmidt. \
 Weighted distribution code by Chris Chike. \
-Jacket images prepared by FuriousDCSL. \
 Japanese localization by nalpan. \
-Maintained by Noah Manneschmidt."
+Maintained by Watson Tungjunyatham."
   );
 }

@@ -39,7 +39,7 @@ export class DrawingList extends Component {
 
   renderScrollableDrawings(drawings) {
     return (
-      <div className={styles.scrollable}>
+      <div className={styles.scrollable + ' ' + globalStyles.rasCry}>
         {drawings.map(this.renderDrawing)}
       </div>
     );

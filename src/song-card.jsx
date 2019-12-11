@@ -26,7 +26,7 @@ export class SongCard extends Component {
     });
 
     const jacketBg = {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("jackets/${id}.jpg")`
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("jackets/${id}.jpg")`
     };
 
     return (
@@ -35,7 +35,7 @@ export class SongCard extends Component {
           <div className={styles.name} title={name_jp}>
             {name}
           </div>
-          {isJapanese ? null : (
+          {isJapanese || (name_jp === name) ? null : (
             <div className={styles.nameTranslation}>{name_jp}</div>
           )}
           <div className={styles.artist} title={artist_jp}>

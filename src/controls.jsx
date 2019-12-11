@@ -1,6 +1,7 @@
 import "formdata-polyfill";
 import { Component } from "preact";
 import styles from "./controls.css";
+import bgStyles from './bg.css';
 import globalStyles from "./app.css";
 import { WeightsControls } from "./controls-weights";
 import { Text } from "preact-i18n";
@@ -130,7 +131,7 @@ export class Controls extends Component {
     return (
       <form
         ref={this.saveFormRef}
-        className={styles.form + (collapsed ? " " + styles.collapsed : "")}
+        className={styles.form + (collapsed ? " " + styles.collapsed : "") + " " + bgStyles['hero-bg']}
         onSubmit={this.handleSubmit}
       >
         <input
