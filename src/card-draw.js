@@ -129,8 +129,6 @@ export function draw(songs, configData) {
     }
   }
 
-  console.log(expectedDrawPerLevel);
-
   const drawnCharts = [];
   /**
    * Record of how many songs of each difficulty have been drawn so far
