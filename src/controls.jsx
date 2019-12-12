@@ -44,6 +44,32 @@ const dataSetConfigs = {
       is_v1_data: true,
     }
   },
+  chuni: {
+    lowerBound: 11,
+    upperBound: 13,
+    upperMaximum: 14,
+    difficulties: [
+      {
+        key: "difficulty.chuni.bas",
+        value: "Basic",
+        checked: false
+      },
+      {
+        key: "difficulty.chuni.adv",
+        value: "Advanced",
+        checked: false
+      },
+      { key: "difficulty.chuni.exp", value: "Expert", checked: true },
+      {
+        key: "difficulty.chuni.mas",
+        value: "Master",
+        checked: true
+      }
+    ],
+    includables: {
+      crystal: false,
+    }
+  },
   a20: {
     lowerBound: 13,
     upperBound: 16,
@@ -142,6 +168,13 @@ export class Controls extends Component {
         <section className={styles.columns}>
           <div className={styles.column}>
             <div className={styles.group}>
+              <label>
+                <Text id="dataSource">Game Version</Text>:{" "}
+                <select name="dataSource" onChange={this.handleSongListChange}>
+                  <option value="maimai" defaultSelected>Maimai</option>
+                  <option value="chuni">Chunithm</option>
+                </select>
+              </label>
               <label>
                 <Text id="chartCount">Number to draw</Text>:{" "}
                 <input

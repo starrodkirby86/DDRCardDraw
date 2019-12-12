@@ -18,6 +18,7 @@ export class SongCard extends Component {
       difficulty,
       level,
       vetoed,
+      jacket,
       abbreviation,
     } = this.props;
 
@@ -26,7 +27,7 @@ export class SongCard extends Component {
     });
 
     const jacketBg = {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("jackets/${id}.jpg")`
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("jackets/${jacket}-${id}.jpg")`
     };
 
     return (
@@ -43,7 +44,7 @@ export class SongCard extends Component {
           </div>
         </div>
         <div className={styles.cardFooter}>
-          <div className={styles.bpm}>{bpm} BPM</div>
+          {bpm !== 0 && <div className={styles.bpm}>{bpm} BPM</div>}
           <div className={styles.difficulty}>
             <Text id={difficulty} /> {level}
           </div>

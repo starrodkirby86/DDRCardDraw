@@ -1,6 +1,6 @@
 {
   "en": {
-    "dataSource": "DDR Version",
+    "dataSource": "Game Version",
     "chartCount": "Number to draw",
     "difficultyLevel": "Difficulty level",
     "upperBound": "Upper bound (inclusive)",
@@ -28,7 +28,8 @@
       "extraExclusive": "Final/Extra Exclusive",
       "usLocked": "Japan-only songs",
       "removed": "Removed songs",
-      "is_v1_data": "Songs added in updates"
+      "is_v1_data": "Songs added in updates",
+      "crystal": "In Chunithm Crystal"
     },
     "shockArrows": "Shock Arrows",
     "difficulty": {
@@ -95,6 +96,24 @@
         },
         "remas": {
           "name": "Re:Master",
+          "abbreviation": "Cha"
+        }
+      },
+      "chuni": {
+        "bas": {
+          "name": "Basic",
+          "abbreviation": "Std"
+        },
+        "adv": {
+          "name": "Advanced",
+          "abbreviation": "Std"
+        },
+        "exp": {
+          "name": "Expert",
+          "abbreviation": "Hvy"
+        },
+        "mas": {
+          "name": "Master",
           "abbreviation": "Cha"
         }
       }

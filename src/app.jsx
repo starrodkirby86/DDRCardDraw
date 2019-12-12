@@ -39,7 +39,7 @@ class App extends Component {
       }
     });
     window.addEventListener("beforeunload", this.handleUnload);
-    loadSongData("maimai-finale");
+    loadSongData("maimai");
   }
 
   componentWillUnmount() {

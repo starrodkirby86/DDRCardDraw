@@ -44,12 +44,16 @@ export function draw(songs, configData) {
    */
 
     if (!inclusions.has("is_v1_data") && (currentSong["is_v1_data"] === 0)) continue;
+    if (!inclusions.has("crystal") && parseInt(currentSong["release"]) >= 191024) continue;
 
     // We're going to each chart inside the json and see if this is one of the diffs we want.
     charts.forEach((chart) => {
       // chart-level filters
 
       const level = mapLevel(chart.level);
+
+      // the chuni data may have blank fields
+      if (!level) { return; }
 
       if (
         !chart || // no chart for difficulty
@@ -73,6 +77,7 @@ export function draw(songs, configData) {
         bpm: currentSong.bpm,
         difficulty: chart.difficulty,
         level: chart.level,
+        jacket: currentSong.jacket,
         abbreviation: 'foo',
       });
     });
