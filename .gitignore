@@ -3,6 +3,8 @@ dist
 node_modules
 /*.zip
 
+.DS_Store
+
 scraper/Extreme Banners/
 
 scraper/Songs/
