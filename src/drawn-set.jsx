@@ -7,7 +7,7 @@ let hue = Math.floor(Math.random() * 255);
 
 function getRandomGradiant() {
   hue += HUE_STEP;
-  return `linear-gradient(hsl(${hue}, 50%, 80%), white, white)`;
+  return `linear-gradient(hsl(${hue}, 50%, 80%), rgba(255, 255, 255, .8), rgba(255, 255, 255, .1))`;
 }
 
 export class DrawnSet extends Component {

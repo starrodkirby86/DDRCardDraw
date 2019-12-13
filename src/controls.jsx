@@ -113,6 +113,7 @@ export function Controls(props) {
   const form = useRef();
   const [collapsed, setCollapsed] = useState(true);
   const [weighted, setWeighted] = useState(false);
+  const [chartCount, setChartCount] = useState(5);
   const [lowerBound, setLowerBound] = useState(defaultState.lowerBound);
   const [upperBound, setUpperBound] = useState(defaultState.upperBound);
 
@@ -174,7 +175,7 @@ export function Controls(props) {
           <div className={styles.group}>
             <label>
               {t("chartCount")}:{" "}
-              <input type="number" name="chartCount" defaultValue="5" min="1" />
+              <input type="number" name="chartCount" value={chartCount} min="1" onChange={(e) => setChartCount(e.value)} />
             </label>
           </div>
           <div className={styles.group}>
