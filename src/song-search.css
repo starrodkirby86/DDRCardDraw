@@ -45,6 +45,7 @@
 .chart:hover {
   box-shadow: 0 0 5px black;
 }
+
 .dif {
   background-color: #e8715f;
 }
@@ -53,4 +54,29 @@
 }
 .cha {
   background-color: #cc71e8;
+}
+
+.Easy {
+  background-color: #6eccc4;
+}
+
+.Basic {
+  background-color: #6fd43d;
+}
+
+.Advanced {
+  background-color: #f8b709;
+}
+
+.Expert {
+  background-color: #ff818d;
+}
+
+.Master {
+  background-color: #9f51dc;
+}
+.Re\:Master {
+  background-color: #dddddd;
+  color: #9f51dc;
+  text-shadow: 0px 0px 10px #ffffff, 1px 1px 1px #ffffff;
 }

@@ -5,75 +5,40 @@ import styles from "./song-search.css";
 import { getDrawnChart } from "./card-draw";
 import { Modal } from "./modal";
 
+const DifficultyCard = ({ song, chart, onSelect }) => {
+  const { difficulty, level } = chart;
+  return (
+    <div
+      className={classNames(styles.chart, styles[difficulty])}
+      onClick={() => onSelect(getDrawnChart(song, chart))}
+    >
+      XXX
+      <br />
+      {level}
+    </div>
+  );
+}
+
 function getSuggestions(fuzzySearch, searchTerm, onSelect) {
   if (fuzzySearch && searchTerm) {
     const suggestions = fuzzySearch.search(searchTerm).slice(0, 5);
     if (suggestions.length) {
       return suggestions.map(song => (
         <div className={styles.suggestion}>
-          <img src={`jackets/${song.jacket}`} className={styles.img} />
+          <img src={`jackets/${song.jacket}-${song.id}`} className={styles.img} />
           <div className={styles.title}>
-            {song.name_translation || song.name}
+            {song.name_jp || song.name}
             <br />
-            {song.artist_translation || song.artist}
+            {song.artist_jp || song.artist}
           </div>
-          {song.single.difficult && (
-            <div
-              className={classNames(styles.chart, styles.dif)}
-              onClick={() =>
-                onSelect(
-                  getDrawnChart(
-                    song,
-                    song.single.difficult,
-                    "difficult",
-                    "difficulty.ace.dif.abbreviation"
-                  )
-                )
-              }
-            >
-              DSP
-              <br />
-              {song.single.difficult.difficulty}
-            </div>
-          )}
-          {song.single.expert && (
-            <div
-              className={classNames(styles.chart, styles.exp)}
-              onClick={() =>
-                onSelect(
-                  getDrawnChart(
-                    song,
-                    song.single.expert,
-                    "expert",
-                    "difficulty.ace.exp.abbreviation"
-                  )
-                )
-              }
-            >
-              ESP
-              <br />
-              {song.single.expert.difficulty}
-            </div>
-          )}
-          {song.single.challenge && (
-            <div
-              className={classNames(styles.chart, styles.cha)}
-              onClick={() =>
-                onSelect(
-                  getDrawnChart(
-                    song,
-                    song.single.challenge,
-                    "challenge",
-                    "difficulty.ace.cha.abbreviation"
-                  )
-                )
-              }
-            >
-              CSP
-              <br />
-              {song.single.challenge.difficulty}
-            </div>
-          )}
+          {
+            song.charts.map(chart => <DifficultyCard
+              key={`diff-card-${chart.difficulty}`}
+              song={song}
+              chart={chart}
+              onSelect={onSelect}
+            />)
+          }
         </div>
       ));
     }

@@ -47,10 +47,9 @@ export class DrawStateManager extends Component {
           data,
           [
             "name",
-            "name_translation",
+            "name_jp",
             "artist",
-            "artist_translation",
-            "search_hint"
+            "artist_jp"
           ],
           {
             sort: true
