@@ -50,9 +50,11 @@ const dataSetConfigs = {
     }
   },
   chuni: {
-    lowerBound: 11,
-    upperBound: 13,
     upperMaximum: 14,
+    defaultState: {
+      lowerBound: 11,
+      upperBound: 13,
+    },
     difficulties: [
       {
         key: "difficulty.chuni.bas",
@@ -75,72 +77,6 @@ const dataSetConfigs = {
       crystal: false,
     }
   },
-  a20: {
-    upperMaximum: 19,
-    defaultState: {
-      lowerBound: 13,
-      upperBound: 16
-    },
-    difficulties: [
-      {
-        key: "difficulty.ace.beg",
-        value: "beginner",
-        checked: false
-      },
-      {
-        key: "difficulty.ace.bas",
-        value: "basic",
-        checked: false
-      },
-      {
-        key: "difficulty.ace.dif",
-        value: "difficult",
-        checked: false
-      },
-      { key: "difficulty.ace.exp", value: "expert", checked: true },
-      {
-        key: "difficulty.ace.cha",
-        value: "challenge",
-        checked: true
-      }
-    ],
-    includables: {
-      unlock: false,
-      goldExclusive: false,
-      extraExclusive: false,
-      tempUnlock: false
-    }
-  },
-  extreme: {
-    upperMaximum: 10,
-    defaultState: {
-      lowerBound: 6,
-      upperBound: 10
-    },
-    difficulties: [
-      {
-        key: "difficulty.extreme.bas",
-        value: "basic",
-        checked: false
-      },
-      {
-        key: "difficulty.extreme.dif",
-        value: "difficult",
-        checked: false
-      },
-      {
-        key: "difficulty.extreme.exp",
-        value: "expert",
-        checked: true
-      },
-      {
-        key: "difficulty.extreme.cha",
-        value: "challenge",
-        checked: true
-      }
-    ],
-    includables: null
-  }
 };
 
 function preventDefault(e) {

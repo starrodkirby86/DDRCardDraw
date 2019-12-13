@@ -30,8 +30,9 @@ export class WeightsControls extends Component {
       newWeights[difficulty] = value;
       updateWeights(newWeights);
     }
+    // Only get the window of lower to upper bound diffs inside segaLevels
     const levels = useMemo(
-      () => getWeightsFor({ high: this.props.high, low: this.props.low, }),
+      () => segaLevels.filter(n => n <= mapLevel(props.high) && n >= mapLevel(props.low)),
       [props.high, props.low]
     );
     const { t } = useContext(TranslateContext);
