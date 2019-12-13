@@ -19,7 +19,7 @@ export function Footer() {
     <footer className={classNames(styles.footer, globalStyles.padded)}>
       {showAbout && <About onClose={() => updateShowAbout(false)} />}
       <div>
-        maimai Card Draw v0.0.1
+        maimai Card Draw v0.0.2
         &nbsp;-&nbsp;
         <a href="#" onClick={showCredits}>Credits</a>
       </div>

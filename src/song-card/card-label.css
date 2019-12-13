@@ -17,13 +17,21 @@
   width: 10em;
   display: block;
   transform: rotate(45deg);
-  background-color: tomato;
   border-width: 2px 0;
   border-color: black;
   border-style: solid;
   padding-top: 5px;
   text-align: center;
 }
+
+.cardLabel.p2 span {
+  background-color: royalblue;
+}
+
+.cardLabel:not(.p2) span {
+  background-color: tomato;
+}
+
 .cardLabel.left span {
   left: auto;
   right: 0;

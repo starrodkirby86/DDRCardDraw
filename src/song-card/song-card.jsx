@@ -63,19 +63,19 @@ export function SongCard(props) {
       onClick={showingIconMenu ? undefined : showIcons}
     >
       {vetoedBy && (
-        <CardLabel left={vetoedBy === 1}>
+        <CardLabel left={vetoedBy === 1} isP2={vetoedBy === 2}>
           P{vetoedBy}
           <Slash size={16} />
         </CardLabel>
       )}
       {protectedBy && (
-        <CardLabel left={protectedBy === 1}>
+        <CardLabel left={protectedBy === 1} isP2={protectedBy === 2}>
           P{protectedBy}
           <Lock size={16} />
         </CardLabel>
       )}
       {replacedBy && (
-        <CardLabel left={replacedBy === 1}>
+        <CardLabel left={replacedBy === 1} isP2={replacedBy === 2}>
           P{replacedBy}
           <Edit size={16} />
         </CardLabel>
