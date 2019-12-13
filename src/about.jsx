@@ -25,7 +25,7 @@ export function About({ onClose }) {
           {t("contact.prompt")}
           <ul className={styles.icons}>
             <li>
-              <a href="https://m.me/noah.manneschmidt" target="_blank">
+              <a href="https://m.me/starrodkirby86" target="_blank">
                 <Icon
                   svg={<Facebook size={48} />}
                   title={t("contact.facebook")}
@@ -33,7 +33,7 @@ export function About({ onClose }) {
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/Cathadan" target="_blank">
+              <a href="https://twitter.com/tungjunyatham" target="_blank">
                 <Icon
                   svg={<Twitter size={48} />}
                   title={t("contact.twitter")}
@@ -41,7 +41,7 @@ export function About({ onClose }) {
               </a>
             </li>
             <li>
-              <a href="https://github.com/noahm/DDRCardDraw">
+              <a href="https://github.com/starrodkirby86/maimaiCardDraw">
                 <Icon svg={<Github size={48} />} title={t("contact.github")} />
               </a>
             </li>

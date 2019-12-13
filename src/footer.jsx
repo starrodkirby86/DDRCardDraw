@@ -1,9 +1,7 @@
 import classNames from "classnames";
-
 import { detectedLanguage } from "./utils";
 import styles from "./footer.css";
 import globalStyles from "./app.css";
-
 import { AuthButton } from "./auth-button";
 import { Icon } from "./icon";
 import { useContext, useState } from "preact/hooks";
@@ -21,18 +19,9 @@ export function Footer() {
       <div>
         maimai Card Draw v0.0.2
         &nbsp;-&nbsp;
-        <a href="#" onClick={showCredits}>Credits</a>
+        <a href="#" onClick={e => (e.preventDefault(), updateShowAbout(true))}>{t("credits")}</a>
       </div>
     </footer>
-  );
-}
-
-function showCredits(e) {
-  e.preventDefault();
-  alert(
-    "App originally by Jeff Lloyd, Noah Manneschmidt. \
-Weighted distribution code by Chris Chike. \
-Japanese localization by nalpan. \
-Maintained by Watson Tungjunyatham."
+    
   );
 }
