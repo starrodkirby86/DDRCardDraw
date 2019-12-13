@@ -41,21 +41,43 @@ img{
   width: 100%;
 }
 
+h1 {
+  padding-left: 10px;
+}
+
 .padded {
   padding: 10px;
 }
 
-.padded button{
+.padded button {
   height: 25px;
-  line-height:0px;
+  line-height: 0px;
 }
 
-.updateBanner {
-  background-color: #ff6666;
-  padding: 1em;
-  text-align: center;
+a:any-link {
+  color: blue;
 }
 
 .rasCry {
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255,255,255,0.5)), url('./assets/rasCry.png') bottom left/contain no-repeat;
 }
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea,
+button {
+  font-size: 16px;
+} /* avoid iOS auto-zoom */
