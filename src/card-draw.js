@@ -19,6 +19,7 @@ import { levels, convert_level_for_pluses, displayLevel, mapLevel, times } from 
  * @return {DrawnChart}
  */
 export function getDrawnChart(currentSong, chart) {
+  const genre = currentSong.catcode ? currentSong.catcode : currentSong.genre;
   return {
     name: currentSong.name,
     name_jp: currentSong.name_jp,
@@ -28,6 +29,7 @@ export function getDrawnChart(currentSong, chart) {
     bpm: currentSong.bpm,
     difficulty: chart.difficulty,
     level: chart.level,
+    genre,
     jacket: currentSong.jacket,
     abbreviation: 'foo',
   }

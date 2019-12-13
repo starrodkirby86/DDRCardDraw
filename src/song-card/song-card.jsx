@@ -41,6 +41,7 @@ export function SongCard(props) {
     level,
     vetoed,
     jacket,
+    genre,
     abbreviation,
   } = replacedWith || chart;
 
@@ -104,6 +105,7 @@ export function SongCard(props) {
       </div>
       <div className={styles.cardFooter}>
         {bpm !== 0 && <div className={styles.bpm}>{bpm} BPM</div>}
+        {genre && <div className={styles.genre}>{genre}</div>}
         <div className={styles.difficulty}>
           {t(difficulty)} {level}
         </div>
