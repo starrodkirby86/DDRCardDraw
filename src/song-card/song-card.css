@@ -114,14 +114,14 @@
 }
 
 .protected {
-  animation: protectBlink .14s step-end infinite alternate;
+  animation: protectBlink 2s ease infinite alternate;
 }
 
 
 @keyframes protectBlink {
   0% {
-    border-color: lime;
-    box-shadow: 0px 0px 5px lime;
+    border-color: skyblue;
+    box-shadow: 0px 0px 5px skyblue;
   }
   50% {
     border-color: white;

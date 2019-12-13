@@ -152,7 +152,7 @@ export function Controls(props) {
   return (
     <form
       ref={form}
-      className={styles.form + (collapsed ? " " + styles.collapsed : "")}
+      className={styles.form + (collapsed ? " " + styles.collapsed : "") + ' ' + bgStyles['hero-bg']}
       onSubmit={preventDefault}
     >
       <input

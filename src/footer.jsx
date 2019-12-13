@@ -21,14 +21,7 @@ export function Footer() {
       <div>
         maimai Card Draw v0.0.1
         &nbsp;-&nbsp;
-        <a href="#" onClick={showCredits}>
-          <p id="credits">Credits</p>
-        </a>
-      </div>
-      <div>
-        <a href="https://github.com/starrodkirby86/maimaiCardDraw">
-          <Icon src={Github} title={<Text id="contact.github" />} />
-        </a>
+        <a href="#" onClick={showCredits}>Credits</a>
       </div>
     </footer>
   );

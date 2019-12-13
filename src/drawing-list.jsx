@@ -1,6 +1,7 @@
 import { useContext } from "preact/hooks";
 import { DrawnSet } from "./drawn-set";
 import styles from "./drawing-list.css";
+import appStyles from "./app.css";
 import { TOURNAMENT_MODE } from "./utils";
 import { DrawStateContext } from "./draw-state";
 
@@ -9,7 +10,7 @@ const renderDrawing = drawing => (
 );
 
 function renderScrollableDrawings(drawings) {
-  return <div className={styles.scrollable}>{drawings.map(renderDrawing)}</div>;
+  return <div className={styles.scrollable + ' ' + appStyles.rasCry}>{drawings.map(renderDrawing)}</div>;
 }
 
 export function DrawingList() {
