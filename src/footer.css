@@ -1,15 +1,8 @@
 .footer {
   border-top: 1px solid #ccc;
+  font-size: 8pt;
   flex: 0 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.icon {
-  height: 1.5em;
-  width: 1.5em;
-  vertical-align: middle;
-  display: inline-block;
-  margin: 0;
 }
