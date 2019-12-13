@@ -25,7 +25,8 @@
 }
 
 .img {
-  height: 50px;
+  max-width: 64px;
+  max-height: 64px;
   margin-left: 0;
   margin-right: 0.25em;
 }

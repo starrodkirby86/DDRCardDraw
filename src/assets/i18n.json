@@ -19,7 +19,7 @@
     },
     "include": "Include",
     "controls": {
-      "show": "Show Options",
+      "show": "Options",
       "hide": "Hide Options",
       "invalid": "Couldn't draw anything with current settings!",
       "unlock": "Unlockable songs",
@@ -76,45 +76,45 @@
       "maimai": {
         "easy": {
           "name": "Easy",
-          "abbreviation": "Lgt"
+          "abbreviation": "EAS"
         },
         "bas": {
           "name": "Basic",
-          "abbreviation": "Std"
+          "abbreviation": "STD"
         },
         "adv": {
           "name": "Advanced",
-          "abbreviation": "Std"
+          "abbreviation": "ADV"
         },
         "exp": {
           "name": "Expert",
-          "abbreviation": "Hvy"
+          "abbreviation": "EXP"
         },
         "mas": {
           "name": "Master",
-          "abbreviation": "Cha"
+          "abbreviation": "MAS"
         },
         "remas": {
           "name": "Re:Master",
-          "abbreviation": "Cha"
+          "abbreviation": "RE:M"
         }
       },
       "chuni": {
         "bas": {
           "name": "Basic",
-          "abbreviation": "Std"
+          "abbreviation": "BAS"
         },
         "adv": {
           "name": "Advanced",
-          "abbreviation": "Std"
+          "abbreviation": "ADV"
         },
         "exp": {
           "name": "Expert",
-          "abbreviation": "Hvy"
+          "abbreviation": "EXP"
         },
         "mas": {
           "name": "Master",
-          "abbreviation": "Cha"
+          "abbreviation": "MAS"
         }
       }
     },

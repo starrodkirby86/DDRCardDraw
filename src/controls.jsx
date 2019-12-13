@@ -249,8 +249,8 @@ export function Controls(props) {
             </div>
           )}
           <div className={classNames(globalStyles.padded, styles.buttons)}>
-            <button onClick={handleRandomize}>{t("draw")}</button>{" "}
-            <button onClick={() => setCollapsed(!collapsed)}>
+            <button className={styles.controlButton} onClick={handleRandomize}>{t("draw")}</button>{" "}
+            <button className={styles.controlButton} onClick={() => setCollapsed(!collapsed)}>
               {t(collapsed ? "controls.show" : "controls.hide")}
             </button>
           </div>

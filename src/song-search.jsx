@@ -12,7 +12,7 @@ const DifficultyCard = ({ song, chart, onSelect }) => {
       className={classNames(styles.chart, styles[difficulty])}
       onClick={() => onSelect(getDrawnChart(song, chart))}
     >
-      XXX
+      {difficulty}
       <br />
       {level}
     </div>
@@ -21,11 +21,11 @@ const DifficultyCard = ({ song, chart, onSelect }) => {
 
 function getSuggestions(fuzzySearch, searchTerm, onSelect) {
   if (fuzzySearch && searchTerm) {
-    const suggestions = fuzzySearch.search(searchTerm).slice(0, 5);
+    const suggestions = fuzzySearch.search(searchTerm.toString()).slice(0, 5);
     if (suggestions.length) {
       return suggestions.map(song => (
         <div className={styles.suggestion}>
-          <img src={`jackets/${song.jacket}-${song.id}`} className={styles.img} />
+          <img src={`jackets/${song.jacket}-${song.id}.jpg`} className={styles.img} />
           <div className={styles.title}>
             {song.name_jp || song.name}
             <br />
