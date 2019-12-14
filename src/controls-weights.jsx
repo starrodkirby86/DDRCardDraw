@@ -24,15 +24,17 @@ function getWeightsFor(props, state = []) {
 
 export class WeightsControls extends Component {
   render(props) {
-    const [savedWeights, updateWeights] = useState([]);
-    function setWeight(difficulty, value) {
-      const newWeights = savedWeights.slice();
-      newWeights[difficulty] = value;
-      updateWeights(newWeights);
+    const [savedWeights, updateWeights] = useState({});
+    console.log(savedWeights);
+    function setWeight(level, value) {
+      updateWeights({
+        ...savedWeights,
+        [level]: value,
+      });
     }
     // Only get the window of lower to upper bound diffs inside segaLevels
     const levels = useMemo(
-      () => segaLevels.filter(n => n <= mapLevel(props.high) && n >= mapLevel(props.low)),
+      () => segaLevels.filter(n => n <= mapLevel(props.high) && n >= mapLevel(props.low)).map(mapLevel),
       [props.high, props.low]
     );
     const { t } = useContext(TranslateContext);
